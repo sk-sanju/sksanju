@@ -1,0 +1,28 @@
+#include <stdio.h>
+
+int main()
+{
+    int a[100],i,j,limit,k,count;
+    printf("enter limit:");
+    scanf("%d",&limit);
+    printf("enter elements:");
+    for(i=0;i<limit;i++){
+        scanf("%d",&a[i]);
+    }
+    //lock first element.
+    for(i=0;i<limit-1;i++){
+        count=1;
+        //travelsing section.
+        for(j=i+1;j<limit;j++){
+           if(a[i]==a[j]){
+               count=count+1;
+               //deletion section.
+               for(k=j;k<limit-1;k++){
+                   a[k]=a[k+1];
+               }limit--;
+               j--;
+           }
+        }printf("the element %d repeated %d times \n",a[i],count);
+    }
+    return 0;
+}
