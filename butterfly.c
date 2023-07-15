@@ -1,27 +1,29 @@
 #include <stdio.h>
-
 int main()
 {
-    int i,j,n,s;
-    printf("enter limit: ");
-    scanf("%d",&n);
-    for(i=0;i<=n;i++){
-        for(j=-n;j<=n;j++){
-            if(j>-n+i&&j<n-i&&i!=n)
-                printf("  ");
+    int i, j, n = 9, m = 1;
+    for (i = 1; i <= n; i++)
+    {
+        for (j = 1; j <= n; j++)
+        {
+            if (j <= m || j > n - m)
+            {
+                printf("*");
+            }
             else
-            printf("* ");
+            {
+                printf(" ");
+            }
         }
         printf("\n");
-    }
-    for(i=0;i<=n;i++){
-        for(j=-n;j<=n;j++){
-            if(j>-i&&j<i)
-                printf("  ");
-            else
-                printf("* ");
+        if (i >= (n - 1) / 2 + 1)
+        {
+            m--;
         }
-        printf("\n");
+        else
+        {
+            m++;
+        }
     }
     return 0;
 }
